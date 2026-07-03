@@ -1,0 +1,3 @@
+[submodule "home-cloud-frontend"]
+	path = home-cloud-frontend
+	url = https://github.com/twonumberfortyfives/home-cloud-frontend.git
