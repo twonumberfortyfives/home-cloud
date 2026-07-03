@@ -1,3 +1,8 @@
 [submodule "home-cloud-frontend"]
 	path = home-cloud-frontend
 	url = https://github.com/twonumberfortyfives/home-cloud-frontend.git
+
+
+[submodule "home-cloud-backend"]
+	path = home-cloud-backend
+	url = https://github.com/twonumberfortyfives/home-cloud-backend.git
