@@ -2,7 +2,9 @@ services:
   backend:
     build:
       context: ./home-cloud-backend
-    container_name: backend
+      target: development
+    volumes:
+      - ./home-cloud-backend:/home-cloud-backend
     ports:
       - "8000:8000"
     restart: unless-stopped
@@ -10,7 +12,7 @@ services:
   frontend:
     build:
       context: ./home-cloud-frontend
-      dockerfile: Dockerfile
+      target: development
     volumes:
       - ./home-cloud-frontend:/home-cloud-frontend
       - /home-cloud-frontend/node_modules
