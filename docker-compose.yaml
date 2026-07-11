@@ -14,8 +14,8 @@ services:
       context: ./home-cloud-frontend
       target: development
     volumes:
-      - ./home-cloud-frontend:/home-cloud-frontend
-      - /home-cloud-frontend/node_modules
+      - ./home-cloud-frontend:/app
+      - /app/node_modules
     ports:
       - "3000:3000"
     environment:
