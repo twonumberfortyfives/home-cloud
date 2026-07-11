@@ -4,7 +4,7 @@ services:
       context: ./home-cloud-backend
       target: development
     volumes:
-      - ./home-cloud-backend:/home-cloud-backend
+      - ./src:/app/src
     ports:
       - "8000:8000"
     restart: unless-stopped
