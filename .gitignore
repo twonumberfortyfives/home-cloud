@@ -1,0 +1,53 @@
+# Backend
+/home-cloud-backend/*.exe
+/home-cloud-backend/*.exe~
+/home-cloud-backend/*.dll
+/home-cloud-backend/*.so
+/home-cloud-backend/*.dylib
+/home-cloud-backend/*.test
+/home-cloud-backend/*.out
+/home-cloud-backend/coverage.*
+/home-cloud-backend/*.coverprofile
+/home-cloud-backend/profile.cov
+/home-cloud-backend/vendor/
+/home-cloud-backend/go.work
+/home-cloud-backend/go.work.sum
+/home-cloud-backend/.env
+/home-cloud-backend/tmp/
+
+# Frontend
+/home-cloud-frontend/dist/
+/home-cloud-frontend/tmp/
+/home-cloud-frontend/out-tsc/
+/home-cloud-frontend/bazel-out/
+/home-cloud-frontend/node_modules/
+/home-cloud-frontend/npm-debug.log
+/home-cloud-frontend/yarn-error.log
+
+# Frontend IDEs and editors
+/home-cloud-frontend/.idea/
+/home-cloud-frontend/.project
+/home-cloud-frontend/.classpath
+/home-cloud-frontend/.c9/
+/home-cloud-frontend/*.launch
+/home-cloud-frontend/.settings/
+/home-cloud-frontend/*.sublime-workspace
+/home-cloud-frontend/.vscode/*
+!/home-cloud-frontend/.vscode/settings.json
+!/home-cloud-frontend/.vscode/tasks.json
+!/home-cloud-frontend/.vscode/launch.json
+!/home-cloud-frontend/.vscode/extensions.json
+!/home-cloud-frontend/.vscode/mcp.json
+/home-cloud-frontend/.history/
+/home-cloud-frontend/.angular/cache/
+/home-cloud-frontend/.sass-cache/
+/home-cloud-frontend/connect.lock
+/home-cloud-frontend/coverage/
+/home-cloud-frontend/libpeerconnection.log
+/home-cloud-frontend/testem.log
+/home-cloud-frontend/typings/
+/home-cloud-frontend/__screenshots__/
+
+# System files
+.DS_Store
+Thumbs.db
