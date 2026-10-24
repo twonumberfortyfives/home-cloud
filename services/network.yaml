@@ -8,10 +8,11 @@ services:
       - backend
       - oauth2-proxy
     volumes:
-      - ${CERT_PATH}:/certs/localhost.pem
-      - ${CERT_KEY_PATH}:/certs/localhost-key.pem
+      - ../.certs/localhost.pem:/certs/localhost.pem
+      - ../.certs/localhost-key.pem:/certs/localhost-key.pem
     ports:
-      - "8000:8000"
+      - "9000:9000"
+      - "4180:4180"
     networks:
       - home-cloud-network
 
@@ -23,7 +24,8 @@ services:
       - redis
     volumes:
       - ../oauth2-proxy:/oauth2-proxy
-    env_file:
-      - ../.env
+    secrets:
+      - GOOGLE_CLIENT_ID
+      - GOOGLE_CLIENT_SECRET
     networks:
       - home-cloud-network

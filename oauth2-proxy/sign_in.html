@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Sign In · Reagle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .login-page {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .login-card {
+            padding: 32px;
+        }
+
+        .login-header {
+            margin-bottom: 24px;
+        }
+
+        .login-header h1 {
+            margin: 0 0 8px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .login-header p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .login-form {
+            margin: 0;
+        }
+
+        .login-button {
+            width: 100%;
+        }
+
+        
+        
+        /* =========================
+        Reset / base
+        ========================= */
+        .button {
+            height: 40px;
+            padding: 0 16px;
+
+            border: 0;
+            border-radius: 6px;
+
+            font: inherit;
+            font-size: 14px;
+            font-weight: 500;
+
+            cursor: pointer;
+        }
+
+        :root {
+            --bg: #f8f9fa;
+            --surface: #ffffff;
+
+            --text: #222;
+            --text-secondary: #777;
+            --text-muted: #999;
+
+            --border: #e5e5e5;
+
+            --primary: #222;
+            --primary-hover: #111;
+
+            --radius: 8px;
+
+            --content-width: 1100px;
+        }
+
+        * {
+        box-sizing: border-box;
+        }
+
+        html,
+        body {
+        margin: 0;
+        min-height: 100%;
+        }
+
+        body {
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+        background: var(--bg);
+        color: var(--text);
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+    </style>
+  </head>
+
+    <div class="page login-page">
+
+    <main class="login-container">
+
+        <section class="login-card card">
+
+        <div class="login-header">
+            <h1>Cloud Storage</h1>
+            <p>Sign in to your account</p>
+        </div>
+
+        <form method="GET" action="https://localhost:4180/oauth2/start" class="login-form">
+            <input type="hidden" name="rd" value="{{ .Redirect }}">
+            <button
+            class="button button-primary login-button"
+            type="submit"
+            >
+                <span>Sign in with Microsoft</span>
+            </button>
+        </form>
+
+        </section>
+
+    </main>
+
+    </div>
+    <script>
+      // Preserve any URL fragment across the OIDC redirect (stock oauth2-proxy behaviour).
+      if (window.location.hash) {
+        (function () {
+          var inputs = document.getElementsByName('rd');
+          for (var i = 0; i < inputs.length; i++) {
+            var idx = inputs[i].value.indexOf('#');
+            if (idx >= 0) { inputs[i].value = inputs[i].value.substr(0, idx); }
+            inputs[i].value += window.location.hash;
+          }
+        })();
+      }
+    </script>
+</html>

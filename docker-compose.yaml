@@ -4,6 +4,12 @@ include:
   - ./services/databases.yaml
   - ./services/fullstack.yaml
 
+secrets:
+  GOOGLE_CLIENT_ID:
+    file: ./.secrets/GOOGLE_CLIENT_ID
+  GOOGLE_CLIENT_SECRET:
+    file: ./.secrets/GOOGLE_CLIENT_SECRET
+
 networks:
   home-cloud-network:
     driver: bridge

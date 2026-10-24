@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{{ .StatusCode }} · {{ .Title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    </style>
+  </head>
+
+  <body>
+
+    <div class="overlay"></div>
+
+    <div class="auth-container">
+      <section class="card card--error">
+
+        <p class="display status-code">{{ .StatusCode }}</p>
+        <h1 class="error-title">{{ .Title }}</h1>
+
+        {{ if .Redirect }}
+        <div class="actions">
+          <form method="GET" action="https://localhost:4180/oauth2/start">
+            <input type="hidden" name="rd" value="{{ .Redirect }}">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </form>
+        </div>
+        {{ end }}
+
+      </section>
+    </div>
+  </body>
+</html>
