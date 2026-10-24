@@ -1,0 +1,29 @@
+services:
+  ingress:
+    build:
+      context: ../ingress
+      dockerfile: Dockerfile
+    depends_on:
+      - frontend
+      - backend
+      - oauth2-proxy
+    volumes:
+      - ${CERT_PATH}:/certs/localhost.pem
+      - ${CERT_KEY_PATH}:/certs/localhost-key.pem
+    ports:
+      - "8000:8000"
+    networks:
+      - home-cloud-network
+
+  oauth2-proxy:
+    build:
+      context: ../oauth2-proxy
+      dockerfile: Dockerfile
+    depends_on:
+      - redis
+    volumes:
+      - ../oauth2-proxy:/oauth2-proxy
+    env_file:
+      - ../.env
+    networks:
+      - home-cloud-network

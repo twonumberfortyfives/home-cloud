@@ -1,20 +1,9 @@
-services:
-  backend:
-    build:
-      context: ./home-cloud-backend
-      target: development
-    volumes:
-      - ./home-cloud-backend:/app
-    ports:
-      - "8000:8000"
-    restart: unless-stopped
+name: home-cloud
+include:KW
+  - ./services/network.yaml
+  - ./services/databases.yaml
+  - ./services/fullstack.yaml
 
-  frontend:
-    build:
-      context: ./home-cloud-frontend
-      target: development
-    volumes:
-      - ./home-cloud-frontend:/app
-      - /app/node_modules
-    ports:
-      - "4200:4200"
+networks:
+  home-cloud-network:
+    driver: bridge

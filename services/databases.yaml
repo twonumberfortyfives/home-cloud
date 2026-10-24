@@ -1,0 +1,23 @@
+services:
+  redis:
+    image: redis:alpine
+    restart: always
+    volumes:
+      - ../volumes/redis:/redis
+    ports:
+      - "6379:6379"
+    networks:
+      - home-cloud-network
+
+  postgres:
+    image: postgres:alpine
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ../volumes/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - home-cloud-network

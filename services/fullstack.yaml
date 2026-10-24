@@ -1,0 +1,30 @@
+services:
+  backend:
+    build:
+      context: ../home-cloud-backend
+      target: development
+    depends_on:
+      - postgres
+    volumes:
+      - ../home-cloud-backend:/app
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    env_file:
+      - ../.env
+    networks:
+      - home-cloud-network
+
+  frontend:
+    build:
+      context: ../home-cloud-frontend
+      target: development
+    volumes:
+      - ../home-cloud-frontend:/app
+      - /app/node_modules
+    ports:
+      - "4200:4200"
+    env_file:
+      - ../.env
+    networks:
+      - home-cloud-network
