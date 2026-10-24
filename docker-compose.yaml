@@ -1,5 +1,5 @@
 name: home-cloud
-include:KW
+include:
   - ./services/network.yaml
   - ./services/databases.yaml
   - ./services/fullstack.yaml
